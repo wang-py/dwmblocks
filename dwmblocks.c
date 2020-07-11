@@ -43,9 +43,26 @@ static void (*writestatus) () = setroot;
 //opens process *cmd and stores output in *output
 void getcmd(const Block *block, char *output)
 {
+    	if (block->signal)
+	{
+		output[0] = block->signal;
+		output++;
+	}
 	strcpy(output, block->icon);
 	char *cmd = block->command;
-	FILE *cmdf = popen(cmd,"r");
+//	FILE *cmdf = popen(cmd,"r");
+	FILE *cmdf;
+	if (*button)
+	{
+		setenv("BUTTON", button, 1);
+		cmdf = popen(cmd,"r");
+		*button = '\0';
+		unsetenv("BUTTON");
+	}
+	else
+	{
+		cmdf = popen(cmd,"r");
+	}
 	if (!cmdf)
 		return;
 	char c;
