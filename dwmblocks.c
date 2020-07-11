@@ -15,6 +15,8 @@ typedef struct {
 } Block;
 void dummysighandler(int num);
 void sighandler(int num);
+/* function to handle button clicks */
+void buttonhandler(int sig, siginfo_t *si, void *ucontext);
 void getcmds(int time);
 #ifndef __OpenBSD__
 void getsigcmds(int signal);
