@@ -104,12 +104,19 @@ void setupsignals()
     for(int i = SIGRTMIN; i <= SIGRTMAX; i++)
         signal(i, dummysighandler);
 
+	struct sigaction sa;
 	for(int i = 0; i < LENGTH(blocks); i++)
 	{
 		if (blocks[i].signal > 0)
+                {
 			signal(SIGRTMIN+blocks[i].signal, sighandler);
+                        // ignore signal when handling SIGUSR1
+                        sigaddset(&sa.sa_mask, SIGRTMIN+blocks[i].signal); 
+                }
 	}
-
+	sa.sa_sigaction = buttonhandler;
+	sa.sa_flags = SA_SIGINFO;
+	sigaction(SIGUSR1, &sa, NULL);
 }
 #endif
 
@@ -174,6 +181,13 @@ void dummysighandler(int signum)
 void sighandler(int signum)
 {
 	getsigcmds(signum-SIGRTMIN);
+	writestatus();
+}
+
+void buttonhandler(int sig, siginfo_t *si, void *ucontext)
+{
+	*button = '0' + si->si_value.sival_int & 0xff;
+	getsigcmds(si->si_value.sival_int >> 8);
 	writestatus();
 }
 #endif
