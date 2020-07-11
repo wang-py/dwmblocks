@@ -36,6 +36,7 @@ static int screen;
 static Window root;
 static char statusbar[LENGTH(blocks)][CMDLENGTH] = {0};
 static char statusstr[2][256];
+static char button[] = "\0";
 static int statusContinue = 1;
 static void (*writestatus) () = setroot;
 
