@@ -52,6 +52,7 @@ void getcmd(const Block *block, char *output)
 	char *cmd = block->command;
 //	FILE *cmdf = popen(cmd,"r");
 	FILE *cmdf;
+        /* if button is pressed, send its value to $BUTTON */
 	if (*button)
 	{
 		setenv("BUTTON", button, 1);
