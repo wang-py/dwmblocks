@@ -3,9 +3,9 @@ static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 	{"", "~/.local/bin/statusbar/vpn.sh",					0,		1},
 	
-	{"", "~/.local/bin/statusbar/memory.sh",                        	30,		2},
+	{"", "~/.local/bin/statusbar/gpu.sh",					5,		10},
 
-//	{"", "~/.local/bin/statusbar/volume",					0,		10},
+	{"", "~/.local/bin/statusbar/memory.sh",                        	30,		2},
 
 //	{"☀", "xbacklight | sed 's/\\..*//'",					0,		11},
 	
