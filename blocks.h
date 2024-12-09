@@ -9,11 +9,11 @@ static const Block blocks[] = {
 
 	{"", "~/.local/bin/statusbar/memory.sh",               	30,		2},
 
+	{"", "~/.local/bin/statusbar/cpu.sh",  				5,		3},
+
 //	{"☀", "xbacklight | sed 's/\\..*//'",					0,		11},
 	
 //	{"", "~/bin/statusbar/battery",						5,		0},
-
-//	{"", "~/.local/bin/statusbar/temp.sh",  				5,		3},
 
 	{"", "~/.local/bin/statusbar/clock.sh",					60,		4},
 };
