@@ -7,9 +7,9 @@ static const Block blocks[] = {
 	
 	{"", "~/.local/bin/statusbar/gpu.sh",					5,		10},
 
-	{"", "~/.local/bin/statusbar/memory.sh",               	30,		2},
-
 	{"", "~/.local/bin/statusbar/cpu.sh",  				5,		3},
+
+	{"", "~/.local/bin/statusbar/memory.sh",               	30,		2},
 
 //	{"☀", "xbacklight | sed 's/\\..*//'",					0,		11},
 	
